@@ -28,6 +28,7 @@ const D3Component: React.FC<D3ComponentProps> = ({ width, height }) => {
         .attr('width', width)
         .attr('height', height);
       
+      // Add your D3 code here
     }
   }, [width, height]);
 
@@ -47,3 +48,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+export { D3Component };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Container, Paper, Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { ResizableBox } from 'react-resizable';
 import 'react-resizable/css/styles.css';
+import '../styles/App.css'; // Import the CSS file
 import D3Component from './D3Component';
 
 const theme = createTheme({
@@ -27,7 +28,8 @@ const App: React.FC = () => {
       <Container>
         <Box my={4} display="flex" justifyContent="flex-end" alignItems="flex-start" height="100vh" padding={2}>
           <ResizableBox width={PLAY_AREA_WIDTH} height={PLAY_AREA_HEIGHT} minConstraints={[300, 200]} maxConstraints={[PLAY_AREA_WIDTH, PLAY_AREA_HEIGHT]}>
-            <Paper elevation={3} style={{ padding: '16px', height: '100%', position: 'relative' }}>
+            <Paper elevation={3} className="play-area" style={{ height: '100%', position: 'relative' }}>
+              <D3Component width={PLAY_AREA_WIDTH} height={PLAY_AREA_HEIGHT} />
             </Paper>
           </ResizableBox>
         </Box>
