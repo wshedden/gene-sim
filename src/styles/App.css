@@ -1,7 +1,8 @@
 /* src/styles/App.css */
-.play-area {
+.play-area, .neural-network {
   border: 2px solid #4089b0; /* Green border */
   border-radius: 8px; /* Rounded corners */
   padding: 16px; /* Padding inside the play area */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-right: 16px; /* Space between the panels */
 }
