@@ -15,7 +15,6 @@ const PLAY_AREA_WIDTH = 1200;
 const PLAY_AREA_HEIGHT = 600;
 
 const App: React.FC = () => {
-  const [screen, setScreen] = useState<'intro' | 'simulation'>('simulation'); // Set initial state to 'simulation'
 
   return (
     <ThemeProvider theme={theme}>
@@ -29,7 +28,6 @@ const App: React.FC = () => {
         <Box my={4} display="flex" justifyContent="flex-end" alignItems="flex-start" height="100vh" padding={2}>
           <ResizableBox width={PLAY_AREA_WIDTH} height={PLAY_AREA_HEIGHT} minConstraints={[300, 200]} maxConstraints={[PLAY_AREA_WIDTH, PLAY_AREA_HEIGHT]}>
             <Paper elevation={3} className="play-area" style={{ height: '100%', position: 'relative' }}>
-              <D3Component width={PLAY_AREA_WIDTH} height={PLAY_AREA_HEIGHT} />
             </Paper>
           </ResizableBox>
         </Box>
