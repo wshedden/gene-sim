@@ -1,8 +1,8 @@
 import React from 'react';
-import { Network } from 'neataptic';
+import { CustomNetwork } from '../utils/CustomNetwork';
 
 interface DebugPanelProps {
-  network: Network | null;
+  network: CustomNetwork | null;
 }
 
 const DebugPanel: React.FC<DebugPanelProps> = ({ network }) => {
@@ -11,20 +11,11 @@ const DebugPanel: React.FC<DebugPanelProps> = ({ network }) => {
   }
 
   const networkData = network.toJSON();
-  const conciseData = {
-    nodes: networkData.nodes.length,
-    connections: networkData.connections.length,
-    layers: networkData.nodes.reduce((acc: any, node: any) => {
-      if (!acc[node.layer]) acc[node.layer] = 0;
-      acc[node.layer]++;
-      return acc;
-    }, {}),
-  };
 
   return (
     <div>
       <h3>Debug Panel</h3>
-      <pre>{JSON.stringify(conciseData, null, 2)}</pre>
+      <pre>{JSON.stringify(networkData, null, 2)}</pre>
     </div>
   );
 };

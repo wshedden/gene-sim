@@ -6,7 +6,7 @@ import '../styles/App.css'; // Import the CSS file
 import D3Component from './D3Component';
 import NeuralNetworkComponent from './NeuralNetworkComponent';
 import DebugPanel from './DebugPanel';
-import { createSimpleNeuralNetwork } from '../utils/neuralNetwork';
+import { createCustomNeuralNetwork } from '../utils/CustomNetwork';
 
 const theme = createTheme({
   palette: {
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const [network, setNetwork] = useState<any>(null);
 
   useEffect(() => {
-    const net = createSimpleNeuralNetwork();
+    const net = createCustomNeuralNetwork();
     setNetwork(net);
   }, []);
 
