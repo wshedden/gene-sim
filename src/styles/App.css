@@ -1,5 +1,5 @@
 /* src/styles/App.css */
-.play-area, .neural-network {
+.play-area, .neural-network, .debug-panel {
   border: 2px solid #4089b0; /* Green border */
   border-radius: 8px; /* Rounded corners */
   padding: 16px; /* Padding inside the play area */

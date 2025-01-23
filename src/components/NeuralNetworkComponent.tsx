@@ -32,21 +32,6 @@ const NeuralNetworkComponent: React.FC<NeuralNetworkComponentProps> = ({ network
       const layerSpacing = 300 / (layerCount + 1);
       const nodeSpacing = 300 / (Math.max(...layerKeys.map(key => layers[key].length)) + 1);
 
-      // Draw connections
-      network.toJSON().connections.forEach((connection: any) => {
-        const fromNode = network.toJSON().nodes.find((node: any) => node.index === connection.from);
-        const toNode = network.toJSON().nodes.find((node: any) => node.index === connection.to);
-
-        if (fromNode && toNode) {
-          svg.append('line')
-            .attr('x1', (fromNode.layer + 1) * layerSpacing)
-            .attr('y1', (layers[fromNode.layer].indexOf(fromNode) + 1) * nodeSpacing)
-            .attr('x2', (toNode.layer + 1) * layerSpacing)
-            .attr('y2', (layers[toNode.layer].indexOf(toNode) + 1) * nodeSpacing)
-            .attr('stroke', 'white')
-            .attr('stroke-width', 1);
-        }
-      });
 
       // Draw nodes
       layerKeys.forEach((layerKey, layerIndex) => {

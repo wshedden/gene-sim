@@ -5,6 +5,7 @@ import 'react-resizable/css/styles.css';
 import '../styles/App.css'; // Import the CSS file
 import D3Component from './D3Component';
 import NeuralNetworkComponent from './NeuralNetworkComponent';
+import DebugPanel from './DebugPanel';
 import { createSimpleNeuralNetwork } from '../utils/neuralNetwork';
 
 const theme = createTheme({
@@ -42,6 +43,9 @@ const App: React.FC = () => {
               <D3Component width={PLAY_AREA_WIDTH} height={PLAY_AREA_HEIGHT} />
             </Paper>
           </ResizableBox>
+          <Paper elevation={3} className="debug-panel" style={{ width: '300px', padding: '16px' }}>
+            <DebugPanel network={network} />
+          </Paper>
         </Box>
       </Container>
     </ThemeProvider>
