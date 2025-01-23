@@ -1,22 +1,49 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
+import { AppBar, Toolbar, Typography, Container, Grid, Paper, Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { ResizableBox } from 'react-resizable';
+import 'react-resizable/css/styles.css';
 
-const D3Component: React.FC = () => {
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
+const PLAY_AREA_WIDTH = 1200;
+const PLAY_AREA_HEIGHT = 800;
+
+interface D3ComponentProps {
+  width: number;
+  height: number;
+}
+
+const D3Component: React.FC<D3ComponentProps> = ({ width, height }) => {
   const d3Container = useRef(null);
 
   useEffect(() => {
     if (d3Container.current) {
       const svg = d3.select(d3Container.current)
         .append('svg')
-        .attr('width', '100%')
-        .attr('height', '100%');
+        .attr('width', width)
+        .attr('height', height);
       
     }
-  }, []);
+  }, [width, height]);
 
   return (
     <div ref={d3Container} style={{ width: '100%', height: '100%' }} />
   );
 };
 
-export default D3Component;
+const App: React.FC = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar position="static">
+      </AppBar>
+    </ThemeProvider>
+  );
+};
+
+export default App;
